@@ -1,103 +1,94 @@
 # Reproducibility Guide
 
-This guide records the public reproduction path for the COPAL release.
+COPAL's public release has two reproducibility paths:
 
-## Modes
+1. Framework reproducibility: verify that a fresh checkout can construct probes, call an arbitrary chatbot adapter, and judge responses.
+2. Paper reproducibility: optionally reproduce the paper-specific Table 2, Table 3, paired contrast, and judge-sensitivity workflows.
 
-COPAL has two execution modes:
+The framework path is the primary open-source contribution.
 
-- `deterministic`: no external LLM calls; useful for smoke tests and CI.
-- `live`: calls configured LLM providers for clause grounding, composition validation, query generation, downstream model responses, and response judging.
-
-The paper experiments used live LLM calls. The public release defaults to explicit OpenRouter routing for live runs.
-
-## Deterministic Smoke Test
+## Framework Smoke Test
 
 ```bash
-python scripts/run_copal_release.py smoke \
-  --experiment-id release_smoke \
-  --company-limit 1 \
-  --runs-dir runs_release
+python scripts/run_copal_framework.py construct \
+  --workspace-key demo-support \
+  --run-id demo_framework \
+  --policies-path examples/policy_worlds.jsonl \
+  --prompts-path examples/system_prompts.jsonl \
+  --runs-dir runs_framework \
+  --execution-mode deterministic \
+  --composition-limit-per-signature 1
+
+python scripts/run_copal_framework.py probe-command \
+  --run-dir runs_framework/demo_framework \
+  --command "python examples/mock_chatbot.py" \
+  --bot-id demo-mock \
+  --live-max-workers 2
+
+python scripts/run_copal_framework.py judge \
+  --run-dir runs_framework/demo_framework \
+  --execution-mode deterministic
 ```
 
-Expected output files include:
+Expected outputs:
 
-- `runs_release/experiments/release_smoke/experiment_manifest.json`
-- `runs_release/experiments/release_smoke/company_status.jsonl`
-- `runs_release/experiments/release_smoke/experiment_summary.json`
+- `runs_framework/demo_framework/selection/benchmark_items_final.jsonl`
+- `runs_framework/demo_framework/evaluation/chatbot_responses.jsonl`
+- `runs_framework/demo_framework/evaluation/evaluation_summary.json`
 
-## Live Provider Setup
+## Live Framework Run
 
-Set an OpenRouter key and map COPAL model aliases to provider model IDs:
+Configure an OpenRouter-compatible provider:
 
 ```bash
 export COPAL_LIVE_PROVIDER=openrouter
 export COPAL_OPENROUTER_API_KEY="your-key"
 export COPAL_OPENROUTER_RESPONSE_FORMAT=json_object
 export COPAL_OPENROUTER_MODEL_MAP='{
-  "gemini-3-flash-preview": "provider/model-id-for-json-judge",
-  "gemini-3.1-pro-preview": "provider/model-id-for-gemini-pro",
   "gpt-5.5": "provider/model-id-for-gpt-5.5",
-  "Doubao-Seed-2.0-pro": "provider/model-id-for-doubao",
-  "aws.claude-opus-4.7": "provider/model-id-for-claude-opus"
+  "gemini-3-flash-preview": "provider/model-id-for-json-judge"
 }'
 ```
 
-Use `COPAL_OPENROUTER_API_KEY_FILE` instead of `COPAL_OPENROUTER_API_KEY` if you prefer a local JSON file:
-
-```json
-{
-  "OPENROUTER_API_KEY": "your-key"
-}
-```
-
-Do not commit that key file.
-
-## One-Company Live Demo
+Construct probes:
 
 ```bash
-python scripts/run_copal_release.py paper-demo \
-  --company-limit 1 \
-  --selected-per-company 12 \
-  --eval-models Doubao-Seed-2.0-pro,gemini-3.1-pro-preview \
-  --runs-dir runs_release \
-  --live-max-workers 6
+python scripts/run_copal_framework.py construct \
+  --workspace-key your-workspace \
+  --run-id your_run \
+  --policies-path path/to/policy_worlds.jsonl \
+  --prompts-path path/to/system_prompts.jsonl \
+  --runs-dir runs_framework \
+  --execution-mode live \
+  --all-roles-model gpt-5.5 \
+  --live-max-workers 8
 ```
 
-This executes:
-
-1. Table 2-style COPAL construction/ablation for one company.
-2. Table 3-style downstream response evaluation on selected composed-policy cases.
-3. Paired single-policy projection evaluation for the same selected composed-policy items.
-
-## Full-Scale Paper Shape
-
-The paper-scale setting uses 30 companies. The exact model availability and cost depend on the provider account.
+Evaluate a target chatbot through HTTP:
 
 ```bash
-python scripts/run_copal_release.py paper-demo \
-  --company-limit 30 \
-  --selected-per-company 30 \
-  --eval-models gpt-5.5,aws.claude-sonnet-4.6,gemini-3.1-pro-preview,Doubao-Seed-2.0-pro,kimi-k2.6,MiniMax-M2.7,qwen3.5-baidu,glm-5.1,deepseek-v3.2-tencent \
-  --runs-dir runs_release \
-  --live-max-workers 24
+python scripts/run_copal_framework.py evaluate-http \
+  --run-dir runs_framework/your_run \
+  --endpoint http://localhost:8000/chat \
+  --response-json-key response_text \
+  --bot-id my-chatbot \
+  --execution-mode live \
+  --judge-model gemini-3-flash-preview \
+  --live-max-workers 16
 ```
 
-Then run the judge-family sensitivity audit from the completed Table 3 outputs:
+## Paper-Specific Reproduction
 
-```bash
-python scripts/run_copal_release.py judge-sensitivity \
-  --source-experiment-ids release_table3_demo \
-  --sample-cases-per-company 10 \
-  --judge-models gpt-5.5,aws.claude-opus-4.7,gemini-3.1-pro-preview,deepseek-v3.2-tencent \
-  --runs-dir runs_release \
-  --live-max-workers 64
-```
+Paper scripts remain available for readers who want to reproduce reported tables:
+
+- `scripts/run_copal_release.py`
+- `scripts/run_table2_ablation_pilot.py`
+- `scripts/run_table3_model_eval.py`
+- `scripts/run_paired_single_composed_from_table3.py`
+- `scripts/run_table3_judge_sensitivity.py`
+
+Compact paper summaries live under `results/paper_summaries/`. Full raw live-response artifacts are intentionally not included.
 
 ## Checkpointing
 
-The runners write manifests and per-company outputs under `runs_release/experiments/<experiment-id>/`. Re-run the same command with the same experiment ID and configuration to resume completed work. If configuration changes, use a new experiment ID.
-
-## Paper Summary Artifacts
-
-Use the compact JSON summaries in `results/paper_summaries/` for table reconstruction. Full raw live-response artifacts are intentionally not included in the public release to avoid shipping large cache/run directories.
+Run directories include stage manifests. Re-running the same command with the same run ID and configuration reuses completed checkpoints. If you change construction settings, use a new run ID.

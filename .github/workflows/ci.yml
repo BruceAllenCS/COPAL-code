@@ -18,9 +18,21 @@ jobs:
           python -m pip install -e ".[dev]"
       - name: Tests
         run: python -m pytest tests
-      - name: Deterministic smoke
+      - name: Framework smoke
         run: |
-          python scripts/run_copal_release.py smoke \
-            --experiment-id ci_smoke \
-            --company-limit 1 \
-            --runs-dir runs_release
+          python scripts/run_copal_framework.py construct \
+            --workspace-key demo-support \
+            --run-id ci_framework \
+            --policies-path examples/policy_worlds.jsonl \
+            --prompts-path examples/system_prompts.jsonl \
+            --runs-dir runs_framework \
+            --execution-mode deterministic \
+            --composition-limit-per-signature 1
+          python scripts/run_copal_framework.py probe-command \
+            --run-dir runs_framework/ci_framework \
+            --command "python examples/mock_chatbot.py" \
+            --bot-id demo-mock \
+            --live-max-workers 2
+          python scripts/run_copal_framework.py judge \
+            --run-dir runs_framework/ci_framework \
+            --execution-mode deterministic

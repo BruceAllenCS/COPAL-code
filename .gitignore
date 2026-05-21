@@ -1,7 +1,11 @@
 # Runtime artifacts
 runs/
 runs_release/
+runs_framework/
+runs_framework_*/
 cache/
+cache_framework/
+cache_framework_*/
 .pytest_cache/
 __pycache__/
 *.py[cod]

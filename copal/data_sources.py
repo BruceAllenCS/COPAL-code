@@ -34,6 +34,7 @@ def _build_policy_rule(raw: dict[str, object]) -> PolicyRule:
 def load_company_worlds(policies_path: Path) -> list[CompanyWorld]:
     worlds: list[CompanyWorld] = []
     industry_counts: dict[str, int] = {}
+    seen_company_keys: set[str] = set()
     for record in iter_jsonl(policies_path):
         industry = str(record["industry"])
         company_index = industry_counts.get(industry, 0)
@@ -41,7 +42,14 @@ def load_company_worlds(policies_path: Path) -> list[CompanyWorld]:
         enterprise_config = dict(record["enterprise_config"])
         policies = dict(record["policies"])
         company_name = str(enterprise_config["company_name"])
-        company_key = compose_company_key(industry, company_index, company_name)
+        company_key = str(record.get("company_key", "")).strip() or compose_company_key(
+            industry,
+            company_index,
+            company_name,
+        )
+        if company_key in seen_company_keys:
+            raise ValueError(f"duplicate company_key in policy dataset: {company_key}")
+        seen_company_keys.add(company_key)
         allowed = [_build_policy_rule(rule) for rule in policies["allowed_behaviors"]]
         prohibited = [_build_policy_rule(rule) for rule in policies["prohibited_behaviors"]]
         worlds.append(

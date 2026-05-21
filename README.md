@@ -1,22 +1,16 @@
 # COPAL
 
-COPAL is the code release for constructing and evaluating composed-policy test cases for organizational-policy chatbots. It turns company policy rules into grounded clauses, composes interacting clauses through relation patterns, generates targeted queries, runs downstream response models, and judges policy-handling outcomes.
+COPAL is a framework for testing whether a chatbot can handle composed organizational policies. Given a policy file, COPAL extracts grounded clauses, finds interacting clause compositions, generates composed-policy probes, sends those probes to a target chatbot, and judges whether the chatbot satisfies the expected handling contract.
 
-This repository is organized as a reproducible research artifact. It includes the public COPAL pipeline, the synthetic COMPASS-style policy worlds used by the paper experiments, paper-summary result artifacts, and release-friendly scripts for smoke tests and live reproduction.
+The target chatbot can be any system you can wrap behind an HTTP endpoint, a command-line adapter, or a JSONL response file. The paper experiments are included as optional research artifacts; the main public interface is the framework workflow below.
 
-## What Is Included
+## What COPAL Does
 
-- `copal/`: core construction, evaluation, judging, checkpointing, and analysis modules.
-- `scripts/run_copal_release.py`: one entrypoint for deterministic smoke tests and live paper-demo runs.
-- `scripts/run_table2_ablation_pilot.py`: Table 2 component-ablation runner.
-- `scripts/run_table3_model_eval.py`: Table 3 downstream model evaluation runner.
-- `scripts/run_paired_single_composed_from_table3.py`: single-policy vs composed-policy paired contrast runner.
-- `scripts/run_table3_judge_sensitivity.py`: alternative-judge sensitivity audit runner.
-- `data/compass_policies/`: synthetic company policy worlds and system prompts.
-- `results/paper_summaries/`: compact JSON summaries for the paper tables and judge-sensitivity audit.
-- `paper_final/manifests/`: paper-facing experiment manifests and write-ups.
-
-The release excludes local caches, raw long-running experiment directories, local API keys, and private deployed-bot policy files.
+1. Convert policy rules into grounded clauses with trigger, scope, and effect fields.
+2. Select non-separable clause compositions using relation patterns.
+3. Generate probes that target policy-composition failure facets.
+4. Run those probes against your chatbot adapter.
+5. Judge responses against each probe's expected and forbidden handling contract.
 
 ## Installation
 
@@ -27,68 +21,141 @@ python -m pip install -U pip
 python -m pip install -e ".[dev]"
 ```
 
-## Quick Smoke Test
+## Minimal Framework Smoke Test
 
-The deterministic smoke test does not call external LLM APIs:
+This uses the included demo policy and a local command-line mock chatbot. It does not call external LLM APIs.
 
 ```bash
-python scripts/run_copal_release.py smoke \
-  --experiment-id release_smoke \
-  --company-limit 1 \
-  --runs-dir runs_release
+python scripts/run_copal_framework.py construct \
+  --workspace-key demo-support \
+  --run-id demo_framework \
+  --policies-path examples/policy_worlds.jsonl \
+  --prompts-path examples/system_prompts.jsonl \
+  --runs-dir runs_framework \
+  --execution-mode deterministic \
+  --composition-limit-per-signature 1
+
+python scripts/run_copal_framework.py probe-command \
+  --run-dir runs_framework/demo_framework \
+  --command "python examples/mock_chatbot.py" \
+  --bot-id demo-mock \
+  --live-max-workers 2
+
+python scripts/run_copal_framework.py judge \
+  --run-dir runs_framework/demo_framework \
+  --execution-mode deterministic
 ```
 
-The output is written under `runs_release/experiments/release_smoke/`.
+Outputs are written under `runs_framework/demo_framework/`. The key files are:
+
+- `selection/benchmark_items_final.jsonl`: generated composed-policy probes.
+- `evaluation/chatbot_requests.jsonl`: requests sent to the chatbot adapter.
+- `evaluation/chatbot_responses.jsonl`: target chatbot responses.
+- `evaluation/response_judgments.jsonl`: response-level correctness judgments.
+- `evaluation/evaluation_summary.json`: aggregate accuracy/error summary.
+
+## Use COPAL With Your Chatbot
+
+Prepare two JSONL files:
+
+- Policy worlds: follow `examples/policy_worlds.jsonl`.
+- System prompts: follow `examples/system_prompts.jsonl`.
+
+Then construct probes:
+
+```bash
+python scripts/run_copal_framework.py construct \
+  --workspace-key your-workspace \
+  --run-id your_run \
+  --policies-path path/to/policy_worlds.jsonl \
+  --prompts-path path/to/system_prompts.jsonl \
+  --runs-dir runs_framework \
+  --execution-mode live \
+  --all-roles-model gpt-5.5 \
+  --live-max-workers 8
+```
+
+Probe an HTTP chatbot:
+
+```bash
+python scripts/run_copal_framework.py probe-http \
+  --run-dir runs_framework/your_run \
+  --endpoint http://localhost:8000/chat \
+  --response-json-key response_text \
+  --bot-id my-chatbot \
+  --live-max-workers 16
+```
+
+The HTTP endpoint receives:
+
+```json
+{
+  "item_id": "...",
+  "query": "...",
+  "system_prompt": "...",
+  "messages": [
+    {"role": "system", "content": "..."},
+    {"role": "user", "content": "..."}
+  ],
+  "metadata": {
+    "signature": "scope-restriction",
+    "target_facet": "boundary-overreach",
+    "target_facets": ["boundary-overreach"]
+  }
+}
+```
+
+It must return a JSON object containing `response_text`, or whichever key you pass with `--response-json-key`.
+
+You can also import responses collected elsewhere:
+
+```bash
+python scripts/run_copal_framework.py import-responses \
+  --run-dir runs_framework/your_run \
+  --responses-path path/to/chatbot_responses.jsonl \
+  --bot-id my-chatbot
+```
+
+The imported JSONL must contain one row per selected probe:
+
+```json
+{"item_id": "probe-id", "response_text": "chatbot answer"}
+```
+
+Finally judge the responses:
+
+```bash
+python scripts/run_copal_framework.py judge \
+  --run-dir runs_framework/your_run \
+  --execution-mode live \
+  --judge-model gemini-3-flash-preview \
+  --live-max-workers 16
+```
 
 ## Live LLM Configuration
 
-For public reproduction, use the OpenRouter route explicitly:
+For public live runs, configure an OpenRouter-compatible route explicitly:
 
 ```bash
 export COPAL_LIVE_PROVIDER=openrouter
 export COPAL_OPENROUTER_API_KEY="your-key"
 export COPAL_OPENROUTER_RESPONSE_FORMAT=json_object
-export COPAL_OPENROUTER_MODEL_MAP="$(python - <<'PY'
-import json
-print(json.dumps({
-  "gemini-3-flash-preview": "provider/model-id-for-json-judge",
-  "gemini-3.1-pro-preview": "provider/model-id-for-gemini-pro",
+export COPAL_OPENROUTER_MODEL_MAP='{
   "gpt-5.5": "provider/model-id-for-gpt-5.5",
-  "Doubao-Seed-2.0-pro": "provider/model-id-for-doubao",
-  "aws.claude-opus-4.7": "provider/model-id-for-claude-opus"
-}))
-PY
-)"
+  "gemini-3-flash-preview": "provider/model-id-for-json-judge"
+}'
 ```
 
-Edit the provider model IDs to match the models available to your account. COPAL model names are local aliases; `COPAL_OPENROUTER_MODEL_MAP` maps them to provider model IDs.
+Do not commit local key files.
 
-## Small Live Paper Demo
+## Repository Layout
 
-This runs a one-company live demo through construction, Table 3 model evaluation, and the paired single-policy contrast:
-
-```bash
-python scripts/run_copal_release.py paper-demo \
-  --company-limit 1 \
-  --selected-per-company 12 \
-  --eval-models Doubao-Seed-2.0-pro,gemini-3.1-pro-preview \
-  --runs-dir runs_release \
-  --live-max-workers 6
-```
-
-For larger reproduction, increase `--company-limit` to 30 and use the model set reported in the paper. The scripts are checkpointed at the filesystem level and can be resumed with the same experiment IDs and configuration.
-
-## Paper Results
-
-Compact result summaries are stored in `results/paper_summaries/`:
-
-- Table 2 component ablation: `results/paper_summaries/table2_ablation/table2_summary.json`
-- Table 3 downstream model evaluation: `results/paper_summaries/table3_model_eval/table3_summary.json`
-- Single-policy vs composed-policy contrast: `results/paper_summaries/paired_single_composed/paired_single_composed_summary.json`
-- Judge-family sensitivity audit: `results/paper_summaries/judge_sensitivity/judge_sensitivity_summary.json`
-- Judge disagreement analysis: `results/paper_summaries/judge_sensitivity/judge_disagreement_analysis.json`
-
-The curated paper-facing reading path is `paper_final/README.md`.
+- `copal/`: framework library, stages, adapters, checkpointing, and judging.
+- `scripts/run_copal_framework.py`: framework entrypoint for third-party chatbot testing.
+- `examples/`: minimal policy world, system prompt, and command-line chatbot adapter.
+- `docs/FRAMEWORK.md`: input schemas and adapter contracts.
+- `scripts/run_copal_release.py` and table scripts: optional paper reproduction utilities.
+- `data/compass_policies/`, `results/paper_summaries/`, `paper_final/`: compact paper-facing artifacts.
 
 ## Verification
 
@@ -96,8 +163,8 @@ The curated paper-facing reading path is `paper_final/README.md`.
 python -m pytest tests
 ```
 
-Some live-integration paths require external provider credentials. The deterministic smoke test above is the fastest sanity check for a clean checkout.
+GitHub Actions runs installation, the full test suite, and the framework smoke test.
 
 ## Citation
 
-If you use this code, cite the COPAL paper. A placeholder citation file is provided in `CITATION.cff`; update it with the final title, author list, venue, and DOI/arXiv identifier when available.
+If you use this framework, cite the COPAL paper. A placeholder citation file is provided in `CITATION.cff`; update it with the final title, author list, venue, and DOI/arXiv identifier when available.
