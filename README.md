@@ -13,6 +13,13 @@
 
 [Quick Start](#quick-start) | [Use Your Chatbot](#use-copal-with-your-chatbot) | [Paper Dataset](#paper-reproducibility-dataset) | [Artifacts](#released-paper-artifacts) | [Citation](#citation)
 
+<br>
+
+<img src="docs/assets/copal-overview.png" alt="COPAL framework overview from the paper" width="96%">
+
+<br>
+<sub>Paper overview: from policy grounding to composed-query construction and response judging.</sub>
+
 </div>
 
 ---
@@ -20,6 +27,12 @@
 ## Why COPAL?
 
 Real deployed chatbots rarely face one policy rule at a time. A user request may simultaneously trigger verification gates, scope restrictions, selective disclosure requirements, and workflow-transfer obligations. COPAL is built to test exactly those non-separable cases.
+
+<p align="center">
+  <img src="docs/assets/policy-gap.png" alt="Single-policy tests can pass while the composed query fails" width="82%">
+  <br>
+  <sub>Single-policy checks can pass while the composed-policy request fails.</sub>
+</p>
 
 COPAL provides:
 
@@ -34,15 +47,7 @@ COPAL provides:
 
 ## How It Works
 
-```mermaid
-flowchart LR
-  A[Policy worlds] --> B[Grounded clauses]
-  B --> C[Composed interactions]
-  C --> D[Diagnostic queries]
-  D --> E[Chatbot adapter]
-  E --> F[Handling-contract judge]
-  F --> G[Scores and analysis]
-```
+The top overview figure shows the paper pipeline: COPAL first grounds raw policy prose into clause records, then constructs genuinely interacting clause sets, and finally synthesizes coverage-efficient user queries with explicit handling contracts.
 
 The framework path is the main public interface. The paper-specific scripts and artifacts are included so readers can reproduce, inspect, and audit the reported experiments.
 
