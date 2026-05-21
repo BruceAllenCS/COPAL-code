@@ -1,0 +1,15 @@
+{
+  "experiment_id": "construction_quality_validation_20260515",
+  "sample_count": 240,
+  "annotator_models": [
+    "gpt-5.5",
+    "aws.claude-opus-4.7"
+  ],
+  "seed": 20260515,
+  "per_company_per_variant": 2,
+  "table2_roots": [
+    "runs/experiments/table2_ablation_30c_shard0_20260513",
+    "runs/experiments/table2_ablation_30c_shard1_20260513",
+    "runs/experiments/table2_ablation_30c_shard2_20260513"
+  ]
+}

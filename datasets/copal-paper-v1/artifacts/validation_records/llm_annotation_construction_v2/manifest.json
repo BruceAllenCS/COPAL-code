@@ -1,0 +1,21 @@
+{
+  "experiment_id": "llm_human_validation_20260514_v2",
+  "sample_count": 640,
+  "annotator_models": [
+    "gpt-5.5",
+    "aws.claude-opus-4.7"
+  ],
+  "sample_sizes": {
+    "clause_grounding": 120,
+    "composition_interaction": 160,
+    "handling_contract": 120,
+    "response_judge_reliability": 240
+  },
+  "table3_merged_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_merged",
+  "non_interacting_control_dir": "runs/experiments/non_interacting_multiclause_control_30c_5per_20260514",
+  "company_run_roots": [
+    "runs/experiments/table2_ablation_30c_shard0_20260513/company_runs",
+    "runs/experiments/table2_ablation_30c_shard1_20260513/company_runs",
+    "runs/experiments/table2_ablation_30c_shard2_20260513/company_runs"
+  ]
+}

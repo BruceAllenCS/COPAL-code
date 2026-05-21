@@ -1,0 +1,9 @@
+{
+  "experiment_id": "table3_model_eval_30c_10model_seed12_20260514_merged",
+  "source_shards": [
+    "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard0",
+    "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard1",
+    "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard2"
+  ],
+  "artifact_kind": "merged_table3_summary"
+}

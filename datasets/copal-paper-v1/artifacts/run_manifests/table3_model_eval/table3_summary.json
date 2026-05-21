@@ -1,0 +1,346 @@
+{
+  "experiment_id": "table3_model_eval_30c_10model_seed12_20260514_merged",
+  "source_shard_ids": [
+    "table3_model_eval_30c_10model_seed12_20260514_shard0",
+    "table3_model_eval_30c_10model_seed12_20260514_shard1",
+    "table3_model_eval_30c_10model_seed12_20260514_shard2"
+  ],
+  "completed_company_count": 30,
+  "completed_runs": [
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard0",
+      "run_id": "table2_ablation_30c_shard0_20260513__000",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard0/company_runs/table2_ablation_30c_shard0_20260513__000"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard0",
+      "run_id": "table2_ablation_30c_shard0_20260513__001",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard0/company_runs/table2_ablation_30c_shard0_20260513__001"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard0",
+      "run_id": "table2_ablation_30c_shard0_20260513__002",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard0/company_runs/table2_ablation_30c_shard0_20260513__002"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard0",
+      "run_id": "table2_ablation_30c_shard0_20260513__003",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard0/company_runs/table2_ablation_30c_shard0_20260513__003"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard0",
+      "run_id": "table2_ablation_30c_shard0_20260513__004",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard0/company_runs/table2_ablation_30c_shard0_20260513__004"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard0",
+      "run_id": "table2_ablation_30c_shard0_20260513__005",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard0/company_runs/table2_ablation_30c_shard0_20260513__005"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard0",
+      "run_id": "table2_ablation_30c_shard0_20260513__006",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard0/company_runs/table2_ablation_30c_shard0_20260513__006"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard0",
+      "run_id": "table2_ablation_30c_shard0_20260513__007",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard0/company_runs/table2_ablation_30c_shard0_20260513__007"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard0",
+      "run_id": "table2_ablation_30c_shard0_20260513__008",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard0/company_runs/table2_ablation_30c_shard0_20260513__008"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard0",
+      "run_id": "table2_ablation_30c_shard0_20260513__009",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard0/company_runs/table2_ablation_30c_shard0_20260513__009"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard1",
+      "run_id": "table2_ablation_30c_shard1_20260513__000",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard1/company_runs/table2_ablation_30c_shard1_20260513__000"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard1",
+      "run_id": "table2_ablation_30c_shard1_20260513__001",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard1/company_runs/table2_ablation_30c_shard1_20260513__001"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard1",
+      "run_id": "table2_ablation_30c_shard1_20260513__002",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard1/company_runs/table2_ablation_30c_shard1_20260513__002"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard1",
+      "run_id": "table2_ablation_30c_shard1_20260513__003",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard1/company_runs/table2_ablation_30c_shard1_20260513__003"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard1",
+      "run_id": "table2_ablation_30c_shard1_20260513__004",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard1/company_runs/table2_ablation_30c_shard1_20260513__004"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard1",
+      "run_id": "table2_ablation_30c_shard1_20260513__005",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard1/company_runs/table2_ablation_30c_shard1_20260513__005"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard1",
+      "run_id": "table2_ablation_30c_shard1_20260513__006",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard1/company_runs/table2_ablation_30c_shard1_20260513__006"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard1",
+      "run_id": "table2_ablation_30c_shard1_20260513__007",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard1/company_runs/table2_ablation_30c_shard1_20260513__007"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard1",
+      "run_id": "table2_ablation_30c_shard1_20260513__008",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard1/company_runs/table2_ablation_30c_shard1_20260513__008"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard1",
+      "run_id": "table2_ablation_30c_shard1_20260513__009",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard1/company_runs/table2_ablation_30c_shard1_20260513__009"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard2",
+      "run_id": "table2_ablation_30c_shard2_20260513__000",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard2/company_runs/table2_ablation_30c_shard2_20260513__000"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard2",
+      "run_id": "table2_ablation_30c_shard2_20260513__001",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard2/company_runs/table2_ablation_30c_shard2_20260513__001"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard2",
+      "run_id": "table2_ablation_30c_shard2_20260513__002",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard2/company_runs/table2_ablation_30c_shard2_20260513__002"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard2",
+      "run_id": "table2_ablation_30c_shard2_20260513__003",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard2/company_runs/table2_ablation_30c_shard2_20260513__003"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard2",
+      "run_id": "table2_ablation_30c_shard2_20260513__004",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard2/company_runs/table2_ablation_30c_shard2_20260513__004"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard2",
+      "run_id": "table2_ablation_30c_shard2_20260513__005",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard2/company_runs/table2_ablation_30c_shard2_20260513__005"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard2",
+      "run_id": "table2_ablation_30c_shard2_20260513__006",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard2/company_runs/table2_ablation_30c_shard2_20260513__006"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard2",
+      "run_id": "table2_ablation_30c_shard2_20260513__007",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard2/company_runs/table2_ablation_30c_shard2_20260513__007"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard2",
+      "run_id": "table2_ablation_30c_shard2_20260513__008",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard2/company_runs/table2_ablation_30c_shard2_20260513__008"
+    },
+    {
+      "shard_id": "table3_model_eval_30c_10model_seed12_20260514_shard2",
+      "run_id": "table2_ablation_30c_shard2_20260513__009",
+      "run_dir": "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard2/company_runs/table2_ablation_30c_shard2_20260513__009"
+    }
+  ],
+  "selection_item_count_histogram": {
+    "30": 30
+  },
+  "response_count_histogram": {
+    "300": 30
+  },
+  "judgment_count_histogram": {
+    "300": 30
+  },
+  "provider_error_count": 5,
+  "live_error_file_count": 3,
+  "live_error_files": [
+    "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard0/company_runs/table2_ablation_30c_shard0_20260513__001/evaluation/live_errors.jsonl",
+    "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard0/company_runs/table2_ablation_30c_shard0_20260513__002/evaluation/live_errors.jsonl",
+    "runs/experiments/table3_model_eval_30c_10model_seed12_20260514_shard1/company_runs/table2_ablation_30c_shard1_20260513__006/evaluation/live_errors.jsonl"
+  ],
+  "judgment_count": 9000,
+  "overall": {
+    "judgment_count": 9000,
+    "error_count": 2885,
+    "error_rate": 0.32055555555555554,
+    "policy_handling_score": 0.6794444444444445
+  },
+  "by_model": {
+    "Doubao-Seed-2.0-pro": {
+      "judgment_count": 900,
+      "error_count": 395,
+      "error_rate": 0.4388888888888889,
+      "policy_handling_score": 0.5611111111111111
+    },
+    "MiniMax-M2.7": {
+      "judgment_count": 900,
+      "error_count": 420,
+      "error_rate": 0.4666666666666667,
+      "policy_handling_score": 0.5333333333333333
+    },
+    "aws.claude-sonnet-4.6": {
+      "judgment_count": 900,
+      "error_count": 243,
+      "error_rate": 0.27,
+      "policy_handling_score": 0.73
+    },
+    "deepseek-v3.2-tencent": {
+      "judgment_count": 900,
+      "error_count": 444,
+      "error_rate": 0.49333333333333335,
+      "policy_handling_score": 0.5066666666666666
+    },
+    "gemini-3-flash-preview": {
+      "judgment_count": 900,
+      "error_count": 201,
+      "error_rate": 0.22333333333333333,
+      "policy_handling_score": 0.7766666666666666
+    },
+    "gemini-3.1-pro-preview": {
+      "judgment_count": 900,
+      "error_count": 165,
+      "error_rate": 0.18333333333333332,
+      "policy_handling_score": 0.8166666666666667
+    },
+    "glm-5.1": {
+      "judgment_count": 900,
+      "error_count": 228,
+      "error_rate": 0.25333333333333335,
+      "policy_handling_score": 0.7466666666666666
+    },
+    "gpt-5.5": {
+      "judgment_count": 900,
+      "error_count": 143,
+      "error_rate": 0.15888888888888889,
+      "policy_handling_score": 0.8411111111111111
+    },
+    "kimi-k2.6": {
+      "judgment_count": 900,
+      "error_count": 260,
+      "error_rate": 0.28888888888888886,
+      "policy_handling_score": 0.7111111111111111
+    },
+    "qwen3.5-baidu": {
+      "judgment_count": 900,
+      "error_count": 386,
+      "error_rate": 0.4288888888888889,
+      "policy_handling_score": 0.5711111111111111
+    }
+  },
+  "by_pattern": {
+    "prerequisite-gating": {
+      "judgment_count": 1790,
+      "error_count": 721,
+      "error_rate": 0.40279329608938547,
+      "policy_handling_score": 0.5972067039106146
+    },
+    "scope-restriction": {
+      "judgment_count": 3640,
+      "error_count": 998,
+      "error_rate": 0.2741758241758242,
+      "policy_handling_score": 0.7258241758241758
+    },
+    "selective-disclosure": {
+      "judgment_count": 1750,
+      "error_count": 566,
+      "error_rate": 0.32342857142857145,
+      "policy_handling_score": 0.6765714285714286
+    },
+    "workflow-transfer": {
+      "judgment_count": 1820,
+      "error_count": 600,
+      "error_rate": 0.32967032967032966,
+      "policy_handling_score": 0.6703296703296704
+    }
+  },
+  "by_facet": {
+    "all-withholding": {
+      "judgment_count": 590,
+      "error_count": 128,
+      "error_rate": 0.21694915254237288,
+      "policy_handling_score": 0.7830508474576271
+    },
+    "blurred-disclosure": {
+      "judgment_count": 580,
+      "error_count": 269,
+      "error_rate": 0.46379310344827585,
+      "policy_handling_score": 0.5362068965517242
+    },
+    "boundary-overreach": {
+      "judgment_count": 1240,
+      "error_count": 247,
+      "error_rate": 0.19919354838709677,
+      "policy_handling_score": 0.8008064516129032
+    },
+    "latent-continuation": {
+      "judgment_count": 600,
+      "error_count": 204,
+      "error_rate": 0.34,
+      "policy_handling_score": 0.6599999999999999
+    },
+    "missed-transfer": {
+      "judgment_count": 620,
+      "error_count": 185,
+      "error_rate": 0.29838709677419356,
+      "policy_handling_score": 0.7016129032258065
+    },
+    "over-refusal": {
+      "judgment_count": 1230,
+      "error_count": 214,
+      "error_rate": 0.17398373983739837,
+      "policy_handling_score": 0.8260162601626017
+    },
+    "pre-gate-leakage": {
+      "judgment_count": 600,
+      "error_count": 322,
+      "error_rate": 0.5366666666666666,
+      "policy_handling_score": 0.4633333333333334
+    },
+    "protected-field-leakage": {
+      "judgment_count": 580,
+      "error_count": 169,
+      "error_rate": 0.2913793103448276,
+      "policy_handling_score": 0.7086206896551723
+    },
+    "semantic-leakage": {
+      "judgment_count": 1170,
+      "error_count": 537,
+      "error_rate": 0.45897435897435895,
+      "policy_handling_score": 0.5410256410256411
+    },
+    "skipped-gate": {
+      "judgment_count": 600,
+      "error_count": 207,
+      "error_rate": 0.345,
+      "policy_handling_score": 0.655
+    },
+    "wrong-route": {
+      "judgment_count": 600,
+      "error_count": 211,
+      "error_rate": 0.3516666666666667,
+      "policy_handling_score": 0.6483333333333333
+    },
+    "wrong-scope-gate": {
+      "judgment_count": 590,
+      "error_count": 192,
+      "error_rate": 0.3254237288135593,
+      "policy_handling_score": 0.6745762711864407
+    }
+  }
+}

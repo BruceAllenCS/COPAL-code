@@ -87,5 +87,41 @@
       "bytes": 200
     }
   ],
-  "license": "MIT for code and dataset files in this repository unless otherwise noted."
+  "license": "MIT for code and dataset files in this repository unless otherwise noted.",
+  "paper_artifacts": {
+    "manifest_path": "artifacts/manifest.json",
+    "counts": {
+      "company_world_specs": 30,
+      "policy_inventories": 30,
+      "grounded_clauses": 480,
+      "composition_records": 232,
+      "generated_candidate_queries": 3827,
+      "screening_mapping_logs": 4343,
+      "final_selected_suite_items": 2340,
+      "handling_contracts": 2340,
+      "reconstructed_chatbot_prompts": 30,
+      "model_outputs": 9000,
+      "automatic_judge_labels": 9000,
+      "ablation_candidate_pool_items": 3826,
+      "validation_record_files": 18,
+      "run_manifest_files": 17
+    },
+    "required_artifact_families": {
+      "30_company_world_specs": "company_world_specs.jsonl",
+      "policy_inventories": "policy_inventories.jsonl",
+      "grounded_clauses": "grounded_clauses.jsonl",
+      "composition_records": "composition_records.jsonl",
+      "generated_candidate_queries": "generated_candidate_queries.jsonl",
+      "screening_mapping_logs": "screening_mapping_logs.jsonl",
+      "final_selected_suites": "final_selected_suites.jsonl",
+      "handling_contracts": "handling_contracts.jsonl",
+      "reconstructed_chatbot_prompts": "reconstructed_chatbot_prompts.jsonl",
+      "construction_and_judge_prompt_templates": "../prompts/copal_prompt_templates.json",
+      "model_outputs": "model_outputs.jsonl",
+      "automatic_judge_labels": "automatic_judge_labels.jsonl",
+      "ablation_candidate_pools": "ablation_candidate_pools.jsonl",
+      "validation_records": "validation_records/",
+      "run_manifests": "run_manifests/"
+    }
+  }
 }

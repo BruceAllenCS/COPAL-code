@@ -91,6 +91,32 @@ Fields:
 
 The exact dynamic prompt-builder source is stored in `prompts/copal_prompt_templates.py`.
 
+## `artifacts/`
+
+Curated paper experiment artifacts. These are exported from the final paper runs and are separate from the full 300-company source-policy inventory.
+
+Top-level JSONL files:
+
+- `company_world_specs.jsonl`: the 30 company policy worlds used in the final paper experiments, normalized with `company_key`.
+- `policy_inventories.jsonl`: one inventory row per paper company, with flattened source-rule metadata.
+- `grounded_clauses.jsonl`: grounded trigger/scope/effect clauses extracted from source policies.
+- `composition_records.jsonl`: accepted relation-pattern composition records, including active clauses and scenario seeds.
+- `generated_candidate_queries.jsonl`: raw generated candidate queries before final selection, annotated with company run and ablation variant.
+- `screening_mapping_logs.jsonl`: query screening summaries, selected-query logs, post-hoc mapping labels, and variant summaries.
+- `final_selected_suites.jsonl`: selected benchmark items for Table 3 and Table 2 ablation variants.
+- `handling_contracts.jsonl`: extracted expected/forbidden handling contracts for selected items.
+- `reconstructed_chatbot_prompts.jsonl`: one reconstructed deployment prompt per final paper company.
+- `model_outputs.jsonl`: 9,000 downstream model responses for the 30-company Table 3 run.
+- `automatic_judge_labels.jsonl`: automatic Gemini 3 Flash response-judge labels for those 9,000 responses.
+- `ablation_candidate_pools.jsonl`: labeled candidate pools used by Table 2 ablation variants.
+
+Subdirectories:
+
+- `validation_records/`: curated LLM annotation, validation, and manual adjudication records. Provider caches are excluded.
+- `run_manifests/`: final run summaries, repair manifests, judge-sensitivity summaries, and paper-final manifest snapshots.
+
+`artifacts/manifest.json` records counts, file hashes, source-run paths relative to a full COPAL workspace, and the required artifact-family checklist.
+
 ## `manifest.json`
 
-Release manifest with source provenance, counts, industry list, file paths, SHA-256 hashes, and file sizes.
+Release manifest with source provenance, counts, industry list, file paths, SHA-256 hashes, file sizes, and a pointer to `artifacts/manifest.json`.

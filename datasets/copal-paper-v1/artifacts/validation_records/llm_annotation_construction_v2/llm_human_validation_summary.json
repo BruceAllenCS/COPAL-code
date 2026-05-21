@@ -1,0 +1,63 @@
+{
+  "overall": {
+    "sample_count": 640,
+    "annotation_count": 970,
+    "fully_annotated_sample_count": 483
+  },
+  "by_task": {
+    "clause_grounding": {
+      "sample_count": 120,
+      "annotation_count": 240,
+      "fully_annotated_sample_count": 120,
+      "consensus_count": 97,
+      "disputed_count": 23,
+      "agreement_rate": 0.8083333333333333,
+      "consensus_valid_rate": 0.979381443298969,
+      "annotator_positive_rates": {
+        "aws.claude-opus-4.7": 0.975,
+        "gpt-5.5": 0.8
+      }
+    },
+    "composition_interaction": {
+      "sample_count": 160,
+      "annotation_count": 320,
+      "fully_annotated_sample_count": 160,
+      "consensus_count": 154,
+      "disputed_count": 6,
+      "agreement_rate": 0.9625,
+      "consensus_valid_rate": 1.0,
+      "annotator_positive_rates": {
+        "aws.claude-opus-4.7": 0.9875,
+        "gpt-5.5": 0.975
+      }
+    },
+    "handling_contract": {
+      "sample_count": 120,
+      "annotation_count": 240,
+      "fully_annotated_sample_count": 120,
+      "consensus_count": 120,
+      "disputed_count": 0,
+      "agreement_rate": 1.0,
+      "consensus_valid_rate": 1.0,
+      "annotator_positive_rates": {
+        "aws.claude-opus-4.7": 1.0,
+        "gpt-5.5": 1.0
+      }
+    },
+    "response_judge_reliability": {
+      "sample_count": 240,
+      "annotation_count": 170,
+      "fully_annotated_sample_count": 83,
+      "consensus_count": 49,
+      "disputed_count": 34,
+      "agreement_rate": 0.5903614457831325,
+      "consensus_valid_rate": 0.4897959183673469,
+      "annotator_positive_rates": {
+        "aws.claude-opus-4.7": 0.6987951807228916,
+        "gpt-5.5": 0.27586206896551724
+      },
+      "gemini_judge_agreement_rate": 0.9795918367346939,
+      "gemini_comparable_consensus_count": 49
+    }
+  }
+}

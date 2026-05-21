@@ -1,0 +1,64 @@
+{
+  "judge_model": "5_judge_majority_error",
+  "judgment_count": 2698,
+  "case_count": 300,
+  "overall_error_rate": 0.4255003706449222,
+  "by_response_model": {
+    "Doubao-Seed-2.0-pro": {
+      "judgment_count": 300,
+      "error_count": 155,
+      "error_rate": 0.5166666666666667
+    },
+    "MiniMax-M2.7": {
+      "judgment_count": 299,
+      "error_count": 178,
+      "error_rate": 0.5953177257525084
+    },
+    "aws.claude-sonnet-4.6": {
+      "judgment_count": 299,
+      "error_count": 106,
+      "error_rate": 0.35451505016722407
+    },
+    "deepseek-v3.2-tencent": {
+      "judgment_count": 300,
+      "error_count": 182,
+      "error_rate": 0.6066666666666667
+    },
+    "gemini-3.1-pro-preview": {
+      "judgment_count": 300,
+      "error_count": 82,
+      "error_rate": 0.2733333333333333
+    },
+    "glm-5.1": {
+      "judgment_count": 300,
+      "error_count": 103,
+      "error_rate": 0.3433333333333333
+    },
+    "gpt-5.5": {
+      "judgment_count": 300,
+      "error_count": 67,
+      "error_rate": 0.22333333333333333
+    },
+    "kimi-k2.6": {
+      "judgment_count": 300,
+      "error_count": 114,
+      "error_rate": 0.38
+    },
+    "qwen3.5-baidu": {
+      "judgment_count": 300,
+      "error_count": 161,
+      "error_rate": 0.5366666666666666
+    }
+  },
+  "ranked_models_high_to_low_error": [
+    "deepseek-v3.2-tencent",
+    "MiniMax-M2.7",
+    "qwen3.5-baidu",
+    "Doubao-Seed-2.0-pro",
+    "kimi-k2.6",
+    "aws.claude-sonnet-4.6",
+    "glm-5.1",
+    "gemini-3.1-pro-preview",
+    "gpt-5.5"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "overall": {
+    "sample_count": 240,
+    "annotation_count": 480,
+    "fully_annotated_sample_count": 240
+  },
+  "by_task": {
+    "clause_grounding": {
+      "sample_count": 0,
+      "annotation_count": 0,
+      "fully_annotated_sample_count": 0,
+      "consensus_count": 0,
+      "disputed_count": 0,
+      "agreement_rate": null,
+      "consensus_valid_rate": null,
+      "annotator_positive_rates": {}
+    },
+    "composition_interaction": {
+      "sample_count": 0,
+      "annotation_count": 0,
+      "fully_annotated_sample_count": 0,
+      "consensus_count": 0,
+      "disputed_count": 0,
+      "agreement_rate": null,
+      "consensus_valid_rate": null,
+      "annotator_positive_rates": {}
+    },
+    "handling_contract": {
+      "sample_count": 0,
+      "annotation_count": 0,
+      "fully_annotated_sample_count": 0,
+      "consensus_count": 0,
+      "disputed_count": 0,
+      "agreement_rate": null,
+      "consensus_valid_rate": null,
+      "annotator_positive_rates": {}
+    },
+    "response_judge_reliability": {
+      "sample_count": 240,
+      "annotation_count": 480,
+      "fully_annotated_sample_count": 240,
+      "consensus_count": 187,
+      "disputed_count": 53,
+      "agreement_rate": 0.7791666666666667,
+      "consensus_valid_rate": 0.24064171122994651,
+      "annotator_positive_rates": {
+        "aws.claude-opus-4.7": 0.37916666666666665,
+        "gpt-5.5": 0.21666666666666667
+      },
+      "gemini_judge_agreement_rate": 0.8288770053475936,
+      "gemini_comparable_consensus_count": 187
+    }
+  }
+}

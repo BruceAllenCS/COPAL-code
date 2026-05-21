@@ -85,12 +85,19 @@ The paper input dataset is committed under `datasets/copal-paper-v1/`. It contai
 - all source policy worlds and flattened policy rules;
 - all 300 deployment system prompts;
 - COPAL construction, coverage, and response-judge prompt templates;
+- the curated final paper artifact bundle, including the 30-company paper slice, grounded clauses, composition records, generated candidates, screening/mapping logs, selected suites, handling contracts, model outputs, automatic judge labels, ablation candidate pools, validation records, and run manifests;
 - a manifest with counts, file hashes, and source provenance.
 
-Regenerate it with:
+Regenerate the base synthetic dataset with:
 
 ```bash
 python scripts/export_paper_dataset.py
+```
+
+Regenerate the curated paper artifact bundle from a full COPAL workspace with:
+
+```bash
+python scripts/export_paper_artifacts.py --copal-root /path/to/full/COPAL
 ```
 
 Paper scripts remain available for readers who want to reproduce reported tables:
@@ -101,7 +108,7 @@ Paper scripts remain available for readers who want to reproduce reported tables
 - `scripts/run_paired_single_composed_from_table3.py`
 - `scripts/run_table3_judge_sensitivity.py`
 
-Compact paper summaries live under `results/paper_summaries/`. Full raw live-response artifacts are intentionally not included.
+Compact paper summaries live under `results/paper_summaries/`. The full curated paper-response and judge-label artifacts are under `datasets/copal-paper-v1/artifacts/`; provider caches and private/internal real-bot deployment probes are not included.
 
 ## Checkpointing
 

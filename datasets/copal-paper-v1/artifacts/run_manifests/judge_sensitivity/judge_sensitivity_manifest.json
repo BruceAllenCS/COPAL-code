@@ -1,0 +1,50 @@
+{
+  "experiment_id": "table3_judge_sensitivity_300case_9model_5judge_20260521",
+  "source_experiment_ids": [
+    "table3_model_eval_30c_10model_seed12_20260514_shard0",
+    "table3_model_eval_30c_10model_seed12_20260514_shard1",
+    "table3_model_eval_30c_10model_seed12_20260514_shard2"
+  ],
+  "excluded_response_models": [
+    "gemini-3-flash-preview"
+  ],
+  "judge_models": [
+    "gpt-5.5",
+    "aws.claude-opus-4.7",
+    "gemini-3.1-pro-preview",
+    "deepseek-v3.2-tencent"
+  ],
+  "sample_cases_per_company": 10,
+  "sample_seed": 12,
+  "sampled_case_count": 300,
+  "sampled_judgment_count_per_judge": 2700,
+  "sampled_response_models": [
+    "Doubao-Seed-2.0-pro",
+    "MiniMax-M2.7",
+    "aws.claude-sonnet-4.6",
+    "deepseek-v3.2-tencent",
+    "gemini-3.1-pro-preview",
+    "glm-5.1",
+    "gpt-5.5",
+    "kimi-k2.6",
+    "qwen3.5-baidu"
+  ],
+  "live_max_workers": 32,
+  "judge_worker_overrides": {
+    "deepseek-v3.2-tencent": 32,
+    "gemini-3.1-pro-preview": 32
+  },
+  "live_client": {
+    "provider": "friday",
+    "direction": "COPAL",
+    "max_tokens": 8000,
+    "temperature": 1.0,
+    "timeout": 300,
+    "response_format": {
+      "type": "json_object"
+    },
+    "max_retries": 10,
+    "retry_backoff_seconds": 10.0,
+    "min_interval_seconds": 1.2
+  }
+}

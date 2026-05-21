@@ -1,0 +1,200 @@
+{
+  "source_run": "runs/experiments/construction_quality_validation_20260515",
+  "frontend_dir": "paper_final/annotation_adjudication/construction_quality_20260515",
+  "manual_export_path": "paper_final/annotation_adjudication/construction_quality_20260515/manual_adjudication_export.json",
+  "manual_exported_at": "2026-05-18T09:23:02.712Z",
+  "sample_count": 240,
+  "annotation_count": 480,
+  "frontend_disagreement_record_count": 39,
+  "manual_adjudication_count": 39,
+  "manual_adjudication_complete": true,
+  "missing_frontend_records": 0,
+  "unknown_export_records": 0,
+  "manual_decision_counts": {
+    "pass": 30,
+    "fail": 9
+  },
+  "manual_decision_counts_by_metric": {
+    "diagnosticity_valid": {
+      "pass": 19,
+      "fail": 4
+    },
+    "naturalness_valid": {
+      "fail": 5,
+      "pass": 11
+    }
+  },
+  "metric_decision_source_counts": {
+    "llm_annotator_agreement": 441,
+    "manual_adjudication": 39
+  },
+  "overall_metrics": {
+    "naturalness_valid": {
+      "count": 240,
+      "final_labeled_count": 240,
+      "pass_count": 235,
+      "fail_count": 5,
+      "pass_rate": 0.9791666666666666,
+      "label_source_counts": {
+        "llm_annotator_agreement": 224,
+        "manual_adjudication": 16
+      }
+    },
+    "diagnosticity_valid": {
+      "count": 240,
+      "final_labeled_count": 240,
+      "pass_count": 235,
+      "fail_count": 5,
+      "pass_rate": 0.9791666666666666,
+      "label_source_counts": {
+        "manual_adjudication": 23,
+        "llm_annotator_agreement": 217
+      }
+    }
+  },
+  "overall_sample_validity": {
+    "sample_count": 240,
+    "final_labeled_sample_count": 240,
+    "overall_valid_count": 231,
+    "overall_invalid_count": 9,
+    "overall_valid_rate": 0.9625
+  },
+  "by_variant": {
+    "clause_only_planning": {
+      "sample_count": 60,
+      "metrics": {
+        "naturalness_valid": {
+          "count": 60,
+          "final_labeled_count": 60,
+          "pass_count": 56,
+          "fail_count": 4,
+          "pass_rate": 0.9333333333333333,
+          "label_source_counts": {
+            "llm_annotator_agreement": 49,
+            "manual_adjudication": 11
+          }
+        },
+        "diagnosticity_valid": {
+          "count": 60,
+          "final_labeled_count": 60,
+          "pass_count": 59,
+          "fail_count": 1,
+          "pass_rate": 0.9833333333333333,
+          "label_source_counts": {
+            "manual_adjudication": 11,
+            "llm_annotator_agreement": 49
+          }
+        }
+      },
+      "overall_valid_count": 56,
+      "overall_invalid_count": 4,
+      "overall_valid_rate": 0.9333333333333333
+    },
+    "copal": {
+      "sample_count": 60,
+      "metrics": {
+        "naturalness_valid": {
+          "count": 60,
+          "final_labeled_count": 60,
+          "pass_count": 59,
+          "fail_count": 1,
+          "pass_rate": 0.9833333333333333,
+          "label_source_counts": {
+            "llm_annotator_agreement": 58,
+            "manual_adjudication": 2
+          }
+        },
+        "diagnosticity_valid": {
+          "count": 60,
+          "final_labeled_count": 60,
+          "pass_count": 59,
+          "fail_count": 1,
+          "pass_rate": 0.9833333333333333,
+          "label_source_counts": {
+            "llm_annotator_agreement": 58,
+            "manual_adjudication": 2
+          }
+        }
+      },
+      "overall_valid_count": 58,
+      "overall_invalid_count": 2,
+      "overall_valid_rate": 0.9666666666666667
+    },
+    "raw_policy_planning": {
+      "sample_count": 60,
+      "metrics": {
+        "naturalness_valid": {
+          "count": 60,
+          "final_labeled_count": 60,
+          "pass_count": 60,
+          "fail_count": 0,
+          "pass_rate": 1.0,
+          "label_source_counts": {
+            "manual_adjudication": 3,
+            "llm_annotator_agreement": 57
+          }
+        },
+        "diagnosticity_valid": {
+          "count": 60,
+          "final_labeled_count": 60,
+          "pass_count": 58,
+          "fail_count": 2,
+          "pass_rate": 0.9666666666666667,
+          "label_source_counts": {
+            "llm_annotator_agreement": 54,
+            "manual_adjudication": 6
+          }
+        }
+      },
+      "overall_valid_count": 58,
+      "overall_invalid_count": 2,
+      "overall_valid_rate": 0.9666666666666667
+    },
+    "without_facet_query_generation": {
+      "sample_count": 60,
+      "metrics": {
+        "naturalness_valid": {
+          "count": 60,
+          "final_labeled_count": 60,
+          "pass_count": 60,
+          "fail_count": 0,
+          "pass_rate": 1.0,
+          "label_source_counts": {
+            "llm_annotator_agreement": 60
+          }
+        },
+        "diagnosticity_valid": {
+          "count": 60,
+          "final_labeled_count": 60,
+          "pass_count": 59,
+          "fail_count": 1,
+          "pass_rate": 0.9833333333333333,
+          "label_source_counts": {
+            "llm_annotator_agreement": 56,
+            "manual_adjudication": 4
+          }
+        }
+      },
+      "overall_valid_count": 59,
+      "overall_invalid_count": 1,
+      "overall_valid_rate": 0.9833333333333333
+    }
+  },
+  "annotator_vs_final_metric_decisions": {
+    "gpt-5.5": {
+      "metric_decision_match_count": 450,
+      "metric_decision_total": 480,
+      "metric_decision_match_rate": 0.9375
+    },
+    "aws.claude-opus-4.7": {
+      "metric_decision_match_count": 471,
+      "metric_decision_total": 480,
+      "metric_decision_match_rate": 0.98125
+    }
+  },
+  "notes": [
+    "Final metric labels use GPT/Claude agreement for originally agreed metric decisions and manual adjudication for GPT/Claude disagreement metric decisions.",
+    "Overall sample validity is naturalness_valid AND diagnosticity_valid after adjudication.",
+    "Manual adjudication is complete for all 39 frontend disagreement records."
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "source_run": "runs/experiments/llm_annotation_response_judge_v11_gpt55_claude240",
+  "frontend_dir": "paper_final/annotation_adjudication/response_judge_v11",
+  "manual_export_path": "paper_final/annotation_adjudication/response_judge_v11/manual_adjudication_export.json",
+  "manual_exported_at": "2026-05-15T09:38:01.557Z",
+  "sample_count": 240,
+  "annotation_count": 480,
+  "frontend_disagreement_record_count": 53,
+  "manual_adjudication_count": 53,
+  "manual_adjudication_complete": true,
+  "label_source_counts": {
+    "manual_adjudication": 53,
+    "llm_annotator_agreement": 187
+  },
+  "gpt_claude_agreement": {
+    "count": 187,
+    "total": 240,
+    "rate": 0.7791666666666667
+  },
+  "final_reference": {
+    "count": 240,
+    "correct_count": 62,
+    "incorrect_count": 178
+  },
+  "gemini_judge_vs_final_reference": {
+    "match_count": 180,
+    "total": 240,
+    "agreement_rate": 0.75,
+    "confusion_counts": {
+      "gemini_correct__final_correct": 61,
+      "gemini_correct__final_incorrect": 59,
+      "gemini_incorrect__final_correct": 1,
+      "gemini_incorrect__final_incorrect": 119
+    }
+  },
+  "annotator_vs_final_reference": {
+    "gpt_5_5_match_count": 220,
+    "gpt_5_5_agreement_rate": 0.9166666666666666,
+    "claude_opus_4_7_match_count": 207,
+    "claude_opus_4_7_agreement_rate": 0.8625
+  },
+  "adjudicated_subset": {
+    "count": 53,
+    "gemini_match_count": 25,
+    "gemini_agreement_rate": 0.4716981132075472,
+    "final_decision_counts": {
+      "true": 17,
+      "false": 36
+    }
+  },
+  "agreed_subset": {
+    "count": 187,
+    "gemini_match_count": 155,
+    "gemini_agreement_rate": 0.8288770053475936
+  },
+  "notes": [
+    "Manual export contains final correct/incorrect decisions for all frontend disagreement records.",
+    "The exported final_error_type values are all none, so this artifact should be used for final correctness adjudication rather than error-type distribution.",
+    "Final reference labels use GPT/Claude agreement for originally agreed samples and manual adjudication for GPT/Claude disagreement samples."
+  ]
+}
