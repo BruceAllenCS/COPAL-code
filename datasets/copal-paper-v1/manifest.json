@@ -1,0 +1,91 @@
+{
+  "dataset_name": "COPAL Paper Reproducibility Dataset",
+  "dataset_version": "copal-paper-v1",
+  "release_date": "2026-05-21",
+  "description": "Synthetic organizational-policy chatbot dataset used by the COPAL paper. Includes company metadata, source policies, deployment system prompts, and COPAL construction/evaluation prompt templates.",
+  "source_files": {
+    "policy_worlds": "data/compass_policies/compass_policies_final.jsonl",
+    "system_prompts": "data/compass_policies/company_system_prompts.jsonl",
+    "dataset_summary": "data/compass_policies/dataset_summary.json",
+    "copal_prompt_source": "copal/prompts.py"
+  },
+  "counts": {
+    "industries": 30,
+    "companies": 300,
+    "policy_worlds": 300,
+    "system_prompts": 300,
+    "policy_rules": 8857,
+    "allowed_policy_rules": 4357,
+    "prohibited_policy_rules": 4500
+  },
+  "industries": [
+    "Air transportation",
+    "Ambulatory health care services",
+    "Automotive dealers",
+    "Building material and supplies dealers",
+    "Cable and other subscription programming",
+    "Clothing and clothing accessories stores",
+    "Consumer electronics and appliance stores",
+    "Depository credit intermediation",
+    "Electric power generation",
+    "Electronic shopping and mail-order houses",
+    "Employment services",
+    "Full-service restaurants",
+    "Gasoline stations",
+    "General medical and surgical hospitals",
+    "Hospitals",
+    "Hotels (except casino hotels) and motels",
+    "Insurance agencies and brokerages",
+    "Insurance carriers",
+    "Legal services",
+    "Motion picture and video industries",
+    "Offices of other health practitioners",
+    "Offices of physicians",
+    "Other professional and technical services",
+    "Pharmacies and drug stores",
+    "Securities and commodity contracts intermediation",
+    "Software publishers",
+    "Sporting goods and hobby and musical instrument stores",
+    "Telecommunications",
+    "Travel arrangement and reservation services",
+    "Wired telecommunications carriers"
+  ],
+  "files": [
+    {
+      "path": "companies/companies.jsonl",
+      "sha256": "52d95d9023998691f15979f00f0c7a88b6bbfe8e5004da1d1e949e07097f749a",
+      "bytes": 844635
+    },
+    {
+      "path": "policies/policy_worlds.jsonl",
+      "sha256": "ba4fab688a5207f3e451c80a54e664af080fc1f170bdebe31ef581446a50e014",
+      "bytes": 6163038
+    },
+    {
+      "path": "policies/policy_rules.jsonl",
+      "sha256": "2f8d3632572e9a416d9457195b3fbce1040a7995b2b2ebce22c4a1ef8e947538",
+      "bytes": 12354253
+    },
+    {
+      "path": "prompts/system_prompts.jsonl",
+      "sha256": "d168d6db7ea751f04959fea12ccc861accfcdb266d8c4190c5c051fef5f3e9a0",
+      "bytes": 2751160
+    },
+    {
+      "path": "prompts/copal_prompt_templates.json",
+      "sha256": "b5cd13cc333f5ea7512880fb6e4e16cf2c8f8fcd1339d891e5218abe6544a805",
+      "bytes": 2715
+    },
+    {
+      "path": "prompts/copal_prompt_templates.py",
+      "sha256": "809ab089c8b2048058851202f7dac4bb3cf36233a69262bce13128c5c09f6b08",
+      "bytes": 16005
+    },
+    {
+      "path": "metadata/dataset_summary.json",
+      "sha256": "1953002361a1d41ab549f1f6e269781707cc7bf614b17f22c4ba768ef5e5d285",
+      "bytes": 200
+    }
+  ],
+  "license": "MIT for code and dataset files in this repository unless otherwise noted."
+}

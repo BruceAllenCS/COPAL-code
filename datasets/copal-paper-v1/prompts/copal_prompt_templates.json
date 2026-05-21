@@ -1,0 +1,52 @@
+{
+  "dataset_version": "copal-paper-v1",
+  "template_source_file": "prompts/copal_prompt_templates.py",
+  "system_prompts": {
+    "grounding": "You are implementing the COPAL proposal layer.\nReturn only one raw JSON object. The first byte must be { and the last byte must be }.\nDo not include markdown fences, XML/thinking tags, prose, or chain-of-thought.",
+    "validation": "You are implementing the COPAL validation layer.\nReturn only one raw JSON object. The first byte must be { and the last byte must be }.\nDo not include markdown fences, XML/thinking tags, prose, or chain-of-thought.",
+    "coverage": "You are the external coverage judge for COPAL.\nAssign signature and facet coverage labels.\nReturn only one raw JSON object. The first byte must be { and the last byte must be }.\nDo not include markdown fences, XML/thinking tags, prose, or chain-of-thought.",
+    "response_judge": "You are the COPAL response-evaluation judge.\nScore against expected handling patterns, not exact surface forms.\nReturn only one raw JSON object. The first byte must be { and the last byte must be }.\nDo not include markdown fences, XML/thinking tags, prose, or chain-of-thought."
+  },
+  "message_builders": [
+    {
+      "name": "build_clause_extraction_messages",
+      "stage": "clause_grounding",
+      "purpose": "Extract trigger, scope, effect, and source evidence from each source policy rule."
+    },
+    {
+      "name": "build_clause_canonicalization_messages",
+      "stage": "clause_grounding",
+      "purpose": "Canonicalize extracted clauses into COPAL's grounded-clause schema."
+    },
+    {
+      "name": "build_composition_adjudication_messages",
+      "stage": "composition_validation",
+      "purpose": "Validate unresolved clause compositions and assign one relation pattern."
+    },
+    {
+      "name": "build_query_verbalization_messages",
+      "stage": "query_generation",
+      "purpose": "Generate realistic user queries for accepted composed-policy interactions."
+    },
+    {
+      "name": "build_query_validation_messages",
+      "stage": "query_validation",
+      "purpose": "Validate query naturalness, non-separability, and target-facet coverage."
+    },
+    {
+      "name": "build_coverage_messages",
+      "stage": "coverage_selection",
+      "purpose": "Assign relation-pattern and target-facet coverage labels."
+    },
+    {
+      "name": "build_downstream_chat_messages",
+      "stage": "chatbot_evaluation",
+      "purpose": "Wrap each selected query for a target chatbot."
+    },
+    {
+      "name": "build_response_judge_messages",
+      "stage": "response_judgment",
+      "purpose": "Judge chatbot responses against expected and forbidden handling contracts."
+    }
+  ]
+}

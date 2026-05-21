@@ -79,6 +79,20 @@ python scripts/run_copal_framework.py evaluate-http \
 
 ## Paper-Specific Reproduction
 
+The paper input dataset is committed under `datasets/copal-paper-v1/`. It contains:
+
+- all 300 synthetic company/workspace records;
+- all source policy worlds and flattened policy rules;
+- all 300 deployment system prompts;
+- COPAL construction, coverage, and response-judge prompt templates;
+- a manifest with counts, file hashes, and source provenance.
+
+Regenerate it with:
+
+```bash
+python scripts/export_paper_dataset.py
+```
+
 Paper scripts remain available for readers who want to reproduce reported tables:
 
 - `scripts/run_copal_release.py`

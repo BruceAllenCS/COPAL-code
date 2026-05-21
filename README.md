@@ -154,6 +154,7 @@ Do not commit local key files.
 - `scripts/run_copal_framework.py`: framework entrypoint for third-party chatbot testing.
 - `examples/`: minimal policy world, system prompt, and command-line chatbot adapter.
 - `docs/FRAMEWORK.md`: input schemas and adapter contracts.
+- `datasets/copal-paper-v1/`: paper reproducibility dataset with all synthetic companies, policies, deployment system prompts, and COPAL prompt templates.
 - `scripts/run_copal_release.py` and table scripts: optional paper reproduction utilities.
 - `data/compass_policies/`, `results/paper_summaries/`, `paper_final/`: compact paper-facing artifacts.
 
