@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "COPAL: composed-policy benchmark construction and evaluation pipeline"
 readme = "README.md"
 requires-python = ">=3.12"
-license = {text = "MIT"}
+license = "MIT"
 dependencies = [
   "requests>=2.31",
 ]
@@ -20,6 +20,9 @@ dev = [
 
 [project.scripts]
 copal = "copal.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["copal*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
