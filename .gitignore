@@ -1,0 +1,29 @@
+# Runtime artifacts
+runs/
+runs_release/
+cache/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+
+# Local environments
+.venv/
+venv/
+.env
+.env.*
+
+# Local credentials and provider keys
+local_api_keys.json
+api_keys.json
+*api_key*.json
+*secret*.json
+
+# Internal/private experiment inputs
+data/meituan_policy_inventory.json
+data/meituan_bot_specific/
+
+# OS/editor noise
+.DS_Store
+.idea/
+.vscode/
+.claude/settings.local.json

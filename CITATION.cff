@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the COPAL paper."
+title: "COPAL: Composed-Policy Evaluation for Organizational-Policy Chatbots"
+type: software
+authors:
+  - name: "Anonymous Authors"
+version: "0.1.0"
+date-released: "2026-05-21"

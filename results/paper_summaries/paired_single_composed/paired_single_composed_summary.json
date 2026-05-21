@@ -1,0 +1,77 @@
+{
+  "experiment_id": "paired_single_composed_table3_30c_5model_seed12_20260520_merged",
+  "source_experiment_ids": [
+    "paired_single_composed_table3_30c_2model_seed12_20260514_merged",
+    "paired_single_composed_table3_30c_3model_seed12_20260520_merged"
+  ],
+  "completed_company_count": 30,
+  "composed_judgment_count": 4500,
+  "single_policy_projection_judgment_count": 11575,
+  "paired_model_results": [
+    {
+      "response_model": "Doubao-Seed-2.0-pro",
+      "composed_item_count": 900,
+      "single_policy_projection_count": 2315,
+      "single_policy_phs": 0.9645788336933045,
+      "composed_phs": 0.5611111111111111,
+      "single_policy_error_rate": 0.035421166306695465,
+      "composed_error_rate": 0.4388888888888889,
+      "gap": 0.40346772258219343,
+      "phs_gap": 0.40346772258219343,
+      "composition_induced_failure_count": 349,
+      "composition_induced_failure_rate": 0.3877777777777778
+    },
+    {
+      "response_model": "gemini-3.1-pro-preview",
+      "composed_item_count": 900,
+      "single_policy_projection_count": 2315,
+      "single_policy_phs": 0.9758099352051836,
+      "composed_phs": 0.8166666666666667,
+      "single_policy_error_rate": 0.024190064794816415,
+      "composed_error_rate": 0.18333333333333332,
+      "gap": 0.1591432685385169,
+      "phs_gap": 0.1591432685385169,
+      "composition_induced_failure_count": 146,
+      "composition_induced_failure_rate": 0.1622222222222222
+    },
+    {
+      "response_model": "aws.claude-sonnet-4.6",
+      "composed_item_count": 900,
+      "single_policy_projection_count": 2315,
+      "single_policy_phs": 0.9693304535637149,
+      "composed_phs": 0.73,
+      "single_policy_error_rate": 0.030669546436285097,
+      "composed_error_rate": 0.27,
+      "gap": 0.2393304535637149,
+      "phs_gap": 0.23933045356371496,
+      "composition_induced_failure_count": 225,
+      "composition_induced_failure_rate": 0.25
+    },
+    {
+      "response_model": "deepseek-v3.2-tencent",
+      "composed_item_count": 900,
+      "single_policy_projection_count": 2315,
+      "single_policy_phs": 0.9585313174946004,
+      "composed_phs": 0.5066666666666666,
+      "single_policy_error_rate": 0.04146868250539957,
+      "composed_error_rate": 0.49333333333333335,
+      "gap": 0.45186465082793376,
+      "phs_gap": 0.4518646508279338,
+      "composition_induced_failure_count": 390,
+      "composition_induced_failure_rate": 0.43333333333333335
+    },
+    {
+      "response_model": "gpt-5.5",
+      "composed_item_count": 900,
+      "single_policy_projection_count": 2315,
+      "single_policy_phs": 0.9706263498920087,
+      "composed_phs": 0.8411111111111111,
+      "single_policy_error_rate": 0.02937365010799136,
+      "composed_error_rate": 0.15888888888888889,
+      "gap": 0.12951523878089752,
+      "phs_gap": 0.12951523878089755,
+      "composition_induced_failure_count": 122,
+      "composition_induced_failure_rate": 0.13555555555555557
+    }
+  ]
+}

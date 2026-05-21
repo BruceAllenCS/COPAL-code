@@ -1,0 +1,30 @@
+{
+  "experiment_id": "table2_ablation_30c_hiddenfix_20260519",
+  "source_experiment_ids": [
+    "table2_ablation_30c_shard0_20260513",
+    "table2_ablation_30c_shard1_20260513",
+    "table2_ablation_30c_shard2_20260513"
+  ],
+  "audit_dir": "runs/experiments/table2_hidden_info_repair_20260519/audit",
+  "generated_repairs_path": "runs/experiments/table2_hidden_info_repair_20260519/generated_repairs.jsonl",
+  "eval_models": [
+    "Doubao-Seed-2.0-pro",
+    "gemini-3.1-pro-preview"
+  ],
+  "judge_model": "gemini-3-flash-preview",
+  "skip_evaluation": false,
+  "applied_repair_count": 62,
+  "pending_repair_count": 0,
+  "changed_company_variant_count": 120,
+  "live_client": {
+    "provider": "friday",
+    "direction": "COPAL",
+    "max_tokens": 8000,
+    "temperature": 1.0,
+    "timeout": 240,
+    "response_format": null,
+    "max_retries": 2,
+    "retry_backoff_seconds": 1.0,
+    "min_interval_seconds": 0.0
+  }
+}

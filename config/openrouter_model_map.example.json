@@ -1,0 +1,13 @@
+{
+  "gemini-3-flash-preview": "provider/model-id-for-json-judge",
+  "gemini-3.1-pro-preview": "provider/model-id-for-gemini-pro",
+  "gpt-5.5": "provider/model-id-for-gpt-5.5",
+  "Doubao-Seed-2.0-pro": "provider/model-id-for-doubao",
+  "aws.claude-sonnet-4.6": "provider/model-id-for-claude-sonnet",
+  "aws.claude-opus-4.7": "provider/model-id-for-claude-opus",
+  "kimi-k2.6": "provider/model-id-for-kimi",
+  "MiniMax-M2.7": "provider/model-id-for-minimax",
+  "qwen3.5-baidu": "provider/model-id-for-qwen",
+  "glm-5.1": "provider/model-id-for-glm",
+  "deepseek-v3.2-tencent": "provider/model-id-for-deepseek"
+}

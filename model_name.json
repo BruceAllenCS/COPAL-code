@@ -1,0 +1,12 @@
+[
+  "gpt-5.5",
+  "aws.claude-sonnet-4.6",
+  "gemini-3.1-pro-preview",
+  "Doubao-Seed-2.0-pro",
+  "kimi-k2.6",
+  "MiniMax-M2.7",
+  "qwen3.5-baidu",
+  "glm-5.1",
+  "deepseek-v3.2-tencent",
+  "aws.claude-opus-4.7"
+]
